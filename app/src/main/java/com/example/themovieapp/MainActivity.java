@@ -1,5 +1,7 @@
 package com.example.themovieapp;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.lifecycle.Observer;
@@ -8,8 +10,6 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-
-import android.os.Bundle;
 
 import com.example.themovieapp.databinding.ActivityMainBinding;
 import com.example.themovieapp.model.Movie;
@@ -48,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onRefresh() {
                 getPopularMovies();
+
+                swipeRefreshLayout.setRefreshing(false);
             }
         });
     }
